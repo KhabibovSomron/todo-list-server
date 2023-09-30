@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is testing out Github Actions
 on: [pull_request]
 jobs:
   run_unittests:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
