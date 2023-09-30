@@ -9,18 +9,17 @@ jobs:
       matrix:
         python-version: ['3.8', '3.9', '3.10']
     steps:
-      - name: Checl out repository code
+      - name: Checkout repository code
         uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Dependecies
-        run:
+        run:  |
           python3 -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run Tests
-        run:
-          cd ./todo
-          echo "SECRET_KEY = 'django-insecure-secret'" > ./secrets.py
+        run:  |
+          echo "SECRET_KEY = 'django-insecure-secret'" > ./todo/secrets.py
           python3 manage.py test
