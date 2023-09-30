@@ -22,5 +22,5 @@ jobs:
       - name: Run Tests
         run:
           cd ./todo
-          echo "SECRET_KEY = 'django-insecure-secret'" > ./local_settings.py
+          echo "SECRET_KEY = 'django-insecure-secret'" > ./secrets.py
           python3 manage.py test
